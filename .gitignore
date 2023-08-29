@@ -24,4 +24,3 @@ package-lock.json
 
 !/data/.gitkeep
 !/server/shared/.gitkeep
-!/server/shared/projects/.gitkeep
