@@ -1,0 +1,51 @@
+version: "3"
+services:
+  app:
+    build:
+      context: ./server
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./server/shared:/app/shared
+      - /app/node_modules
+      - ./server:/app
+    depends_on:
+      - db
+    restart: always
+    environment:
+      - MONGO_URL=mongodb://db:27017/project-system
+      - PORT=3001
+      - FE_ADDRESS=http://192.168.55.93:3050
+      - SHARE=/app/shared
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./server/shared:/app/shared
+      - ./client:/app
+      - /app/node_modules
+    depends_on:
+      - app
+    restart: always
+    environment:
+      - WDS_SOCKET_PORT=0
+
+  nginx:
+    depends_on:
+      - app
+      - client
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    ports:
+      - 3050:90
+    volumes:
+      - ./server/shared:/usr/local/apache2/htdocs/
+
+  db:
+    image: mongo
+    restart: always
+    volumes:
+      - ./server/data:/data/db

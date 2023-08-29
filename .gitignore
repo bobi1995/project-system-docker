@@ -1,0 +1,27 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+.vscode
+.env
+yarn.lock
+package-lock.json
+
+# Ignore the contents of /data and /shared folders
+# Add a trailing slash to indicate directories
+
+#server
+/server/data/*
+/server/shared/projects/*
+/server/node_modules
+
+#client
+/client/node_modules
+/client/build
+
+
+# Exclude the .gitkeep files from being ignored
+
+!/data/.gitkeep
+!/server/shared/.gitkeep
+!/server/shared/projects/.gitkeep
