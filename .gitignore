@@ -11,8 +11,8 @@ package-lock.json
 # Add a trailing slash to indicate directories
 
 #server
-/server/data/*
-/server/shared/projects/*
+/server/data/
+/server/shared/
 /server/node_modules
 
 #client
