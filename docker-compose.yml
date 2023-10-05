@@ -14,7 +14,7 @@ services:
     environment:
       - MONGO_URL=mongodb://db:27017/project-system
       - PORT=3001
-      - FE_ADDRESS=http://192.168.55.93:3050
+      - FE_ADDRESS=http://192.168.248.130:3050
       - SHARE=/app/shared
 
   client:
