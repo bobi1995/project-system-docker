@@ -6,6 +6,7 @@ const uploadDir = path.join(__dirname, "../../../shared");
 const storage = multer.diskStorage({
   destination: (req, file, callback) => {
     const { projectId } = req.body;
+    console.log(projectId);
     if (!projectId) {
       return "Not found";
     }
@@ -13,6 +14,7 @@ const storage = multer.diskStorage({
     const projectPath = path.join(uploadDir, projectId);
     const simulationPath = path.join(projectPath, "simulation");
 
+    console.log(file.filename);
     if (!fs.existsSync(projectPath)) {
       fs.mkdirSync(projectPath, { recursive: true });
     }
@@ -28,6 +30,11 @@ const storage = multer.diskStorage({
   },
 });
 
-const upload = multer({ storage: storage });
+const upload = multer({
+  storage: storage,
+  limits: {
+    fileSize: 10 * 1024 * 1024,
+  },
+});
 
 module.exports = upload;

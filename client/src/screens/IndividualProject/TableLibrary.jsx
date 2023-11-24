@@ -60,6 +60,7 @@ const TableLibrary = (props) => {
       })
       .catch((e) => {
         props.setLoading(false);
+        console.log(e);
         setAlertMessage(e);
       });
   };

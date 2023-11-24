@@ -35,9 +35,9 @@ router.get("/:userId", async (req, res) => {
 
 //add user
 router.post("/add", async (req, res) => {
-  if (!req.isAuth) {
-    return res.status(401).send("Нямаш права за тази сесия");
-  }
+  // if (!req.isAuth) {
+  //   return res.status(401).send("Нямаш права за тази сесия");
+  // }
   const exist = await UserModel.findOne({ email: req.body.email });
   if (exist) {
     return res.send("User already exists");

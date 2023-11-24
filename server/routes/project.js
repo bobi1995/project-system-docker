@@ -227,6 +227,8 @@ router.post(
   "/simulation",
   uploadSimulation.single("simulation"),
   async (req, res, next) => {
+    console.log("here");
+
     const file = req.file;
     const project = await ProjectModel.findById(req.body.projectId);
     if (!project) {
