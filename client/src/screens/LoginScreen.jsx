@@ -121,6 +121,42 @@ const LoginForm = () => {
         />
       ) : null}
       {loading ? <DialogLoader /> : null}
+      <div
+        style={{
+          position: "absolute",
+          bottom: "0",
+        }}
+      >
+        <Typography
+          style={{
+            textAlign: "center",
+          }}
+        >
+          Интернет страницата на Водни и енергийни спестявания АД е изработена в
+          изпълнение на проект по Договор за БФП № BG-RRP-3.005-4159-C01,
+          финансиран по Програмата за икономическа трансформация към Националния
+          план за възстановяване и устойчивост по процедура BG-RRP-3.005
+          „Решения в областта на информационните и комуникационни технологии и
+          киберсигурността в малките и средни предприятия.“
+        </Typography>
+        <div
+          style={{
+            justifyContent: "space-around",
+            display: "flex",
+          }}
+        >
+          <img
+            src={require("../images/npvu.png")}
+            alt="НПВУ"
+            style={{ width: "200px", height: "80px", margin: "0 10px" }}
+          />
+          <img
+            src={require("../images/nextgen.png")}
+            alt="Next Generation"
+            style={{ width: "300px", height: "80px", margin: "0 10px" }}
+          />
+        </div>
+      </div>
     </Grid>
   );
 };
